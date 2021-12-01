@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PBFT algorithm">
+    <meta name="author" content="PBFT Visualization">
+    <title>PBFT Algorithm</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">PBFT Visualization</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div><!--navbar -->
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group">
+                <div class="list-group">
+                    <a class="list-group-item" href="Blockchain.html"><span class="fa fa-square"></span>&nbsp;Blockchain</a>
+                    <a class="list-group-item active" href="PBFT-algorithm.html"><span class="fa fa-square"></span>&nbsp;PBFT Algorithm</a>
+                    <a class="list-group-item" href="Design-Tech.html"><span class="fa fa-square"></span>&nbsp;Design and Technical Approach</a>
+                    <a class="list-group-item" href="RDB-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on ResilientDB</a>
+                    <a class="list-group-item" href="Open-Source-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on Open Source PBFT Implementation</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-sm-3 -->
+        <div class="col-sm-8">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="page-header">
+                    <h1>PBFT (Practical-Byzantine-Fault-Tolerance) Protocol</h1>
+                </div>
+                <p>PBFT consensus protocol is the most basic BFT protocol based on voting which was proposed in the late 90s. It was designed to be able to tolerate a fixed fraction of malicious nodes in the network and still be able to reach consensus on a transaction proposed.</p>
+                <p></p>
+                <p></p>
+                <h3>Algorithm Design</h3>
+                <p>PBFT protocol is executed with a number of nodes ‘n’, where n>=3f + 1 and f is the number of byzantine nodes. One of the nodes acts as the primary node with some additional responsibilities. When the client sends a digitally signed transaction to a primary replica (which is elected by all other replicas in the block chain), it is responsible to coordinate, assign sequence number and send the ordered requests to all the other nodes called replicas (R1, R2 and R3). This phase is known as the ‘pre-prepare phase’. Now all the replicas send the pre-prepare message they received from primary to all the other replicas (including the primary node). This phase is known as the ‘prepare phase’. By the end of the prepare phase, all the good replicas would be able to know that the majority of other replicas have received the same transaction as they did and hence go ahead and prepare themselves for the commit. All the good replicas now create a ‘prepare certificate’ and send it to all the other replicas (including the primary). Hence, by the end of the commit phase if the majority of replicas send the same prepare certificate, all the good replicas will know that not only is there a majority of replicas who have received the same transaction but all the other good replicas have also sent the same prepare certificate. Hence consensus is reached for the given transaction, so replicas go ahead and execute the transaction and all the replicas including the primary reply to the client acknowledging the transaction.</p>
+                <p style="text-align:center;"><img src="img/PBFT.jpg" width="450" height="170" alt="Pbft"></p>
+                <h3>View Change</h3>
+                <p>If the majority replicas didn’t send the same transaction by the end of prepare phase as the one a particular replica did (For e.g.: R1), R1 detects that primary is faulty and does not send the prepare certificate and instead it sends a view change request to replace the existing primary. Hence whenever there is some malicious behaviour of primary detected, nodes send view change requests. When enough votes representing majority (2/3rd) are received for view change, the existing primary is replaced with a new primary and the process repeats until an honest primary is elected and is working properly.</p>
+                <p></p>
+                <h3>Advantages and Applications</h3>
+                    <ul>
+                        <li>Tolerates a fixed fraction of byzantine behaviourcin the network which makes it reliable</li>
+                        <li>Risk of centralization is removed and lower energy utilization to add a new block</li>
+                        <li>Cryptocurrency platforms such as 'Zilliqa' use PBFT along with PoW consensus.</li>
+                    </ul>
+                    <p>To overcome the drawback to scalability due to communication overhead of O(n^2), many new variants of PBFT have been proposed such as Zyzzyva, RBFT which were build on top of the traditional protocol.</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+
+                <p>&nbsp;</p>
+                <hr>
+
+</div>
+        </div>
+
+
+    </div>
+    <div class="navbar navbar-inverse navbar-static-bottom" role="navigation">
+        <div class="container">
+            <div class="col-md-4">
+                <ul>
+                    <p>&nbsp;</p>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="http://www.vldb.org/pvldb/vol13/p2893-rahnama.pdf">ResilientDB Research Paper</a></li>
+                    <li><a href="https://resilientdb.com/">ResilientDB Blog</a></li>
+                    <li><a href="Reference.html">References</a></li>
+                    <li><a href="">Github for Visualization</a></li>
+                    <li><a href="">Github for Blog</a></li>
+                    <script src="https://apis.google.com/js/platform.js"></script>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>   
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

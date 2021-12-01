@@ -4,19 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PBFT algorithm Visualization in blockchain">
+    <meta name="description" content="Open source PBFT visualization">
     <meta name="author" content="PBFT Visualization">
-    <title>PBFT Visualization</title>
+    <title>Open source PBFT visualization</title>
     <link rel="icon" href="img/favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <script>
-
-        $(function () {
-            $("#footer").load("footer.html");$("#side-bar-right").load("side-bar-right.html"); $("#content-down").load("content-down.html"); $("#content-up").load("content-up.html");
-        });
-    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -28,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand active" href="index.html">PBFT Visualization</a>
+                <a class="navbar-brand" href="index.html">PBFT Visualization</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -46,7 +40,7 @@
                     <a class="list-group-item" href="PBFT-algorithm.html"><span class="fa fa-square"></span>&nbsp;PBFT Algorithm</a>
                     <a class="list-group-item" href="Design-Tech.html"><span class="fa fa-square"></span>&nbsp;Design and Technical Approach</a>
                     <a class="list-group-item" href="RDB-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on ResilientDB</a>
-                    <a class="list-group-item" href="Open-Source-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on Open Source PBFT Implementation</a>
+                    <a class="list-group-item active" href="Open-Source-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on Open Source PBFT Implementation</a>
                 </div>
             </div>
         </div>
@@ -55,15 +49,20 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="page-header">
-                    <h1>PBFT Visualization</h1>
+                    <h1>Open source PBFT visualization</h1>
                 </div>
-
-                <nav>
-                    <ul class="pager">
-                        <li class="pager-prev"><a href="#">PBFT Algorithm</a></li>
-                        <li class="pager-next"><a href="#">Blockchain</a></li>
-                    </ul>
-                </nav>
+                <p>Many open source PBFT implementations were checked in github. However, many implementations are either implemented in a language team is not familiar with or have many dependency/bug issues and hence, are difficult to work with. The PBFT implementation that was chosen for this visualization, <a href="https://github.com/soumyaxyz/Python-PBFT-Blockchain">(Source Code)</a> is the basic version where two clients and four replicas are present and a single message is being sent. This simple PBFT protocol was developed over HTTP, using Python3 and asyncio/aiohttp. This implementation creates different instances of client and replicas on various network ports in the localhost.</p>
+                <p>Following code changes were made to visualize the algorithm and blockchain creation</p>
+                <ul>
+                    <li>Created a front end by building the graphics framework of the website and the corresponding interactive API functions</li>
+                    <li>Functions created to display the real time data during a phase and after a phase at each replica when the algorithm is run in the backend</li>
+                    <li>Changed/added the published information so the front end can capture it and use the data to enhance the visualization of the transaction flow</li>
+                    <li>Debugged and fixed an issue with the current implementation with regards to the failure to add a block to the blockchain after a certain interval(ckpt_interval) of messages are received</li>
+                    <li>Debugged and fixed an issue with the current implementation with regard to the failure to add a blocks to the blockchain for the last replica</li>
+                    <li>Simulated Byzantine behaviour</li>
+                    <li>Added new features to the front end to visualize blockchain</li>
+                    <li>Establish connection between front and backend</li>
+                </ul>
                 <p></p>
                 <p></p>
                 <p></p>
@@ -71,11 +70,8 @@
                 <p>&nbsp;</p>
                 <hr>
 
-
-
-
-
             </div>
+
         </div>
 
 
@@ -88,12 +84,12 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="http://www.vldb.org/pvldb/vol13/p2893-rahnama.pdf">ResilientDB Research Paper</a></li>
                     <li><a href="https://resilientdb.com/">ResilientDB Blog</a></li>
-                    <li><a href="References.html">References</a></li>
+                    <li><a href="Reference.html">References</a></li>
                     <li><a href="">Github for Visualization</a></li>
                     <li><a href="">Github for Blog</a></li>
                     <script src="https://apis.google.com/js/platform.js"></script>
                     <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>   
                 </ul>
 
             </div>

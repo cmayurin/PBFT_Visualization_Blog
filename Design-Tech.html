@@ -4,19 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PBFT algorithm Visualization in blockchain">
+    <meta name="description" content="Design and Technical approach">
     <meta name="author" content="PBFT Visualization">
-    <title>PBFT Visualization</title>
+    <title>Design and Technical approach</title>
     <link rel="icon" href="img/favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <script>
-
-        $(function () {
-            $("#footer").load("footer.html");$("#side-bar-right").load("side-bar-right.html"); $("#content-down").load("content-down.html"); $("#content-up").load("content-up.html");
-        });
-    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -28,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand active" href="index.html">PBFT Visualization</a>
+                <a class="navbar-brand" href="index.html">PBFT Visualization</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -44,7 +38,7 @@
                 <div class="list-group">
                     <a class="list-group-item" href="Blockchain.html"><span class="fa fa-square"></span>&nbsp;Blockchain</a>
                     <a class="list-group-item" href="PBFT-algorithm.html"><span class="fa fa-square"></span>&nbsp;PBFT Algorithm</a>
-                    <a class="list-group-item" href="Design-Tech.html"><span class="fa fa-square"></span>&nbsp;Design and Technical Approach</a>
+                    <a class="list-group-item active" href="Design-Tech.html"><span class="fa fa-square"></span>&nbsp;Design and Technical Approach</a>
                     <a class="list-group-item" href="RDB-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on ResilientDB</a>
                     <a class="list-group-item" href="Open-Source-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on Open Source PBFT Implementation</a>
                 </div>
@@ -55,25 +49,28 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="page-header">
-                    <h1>PBFT Visualization</h1>
+                    <h1>Design and Technical Specifications</h1>
                 </div>
-
-                <nav>
-                    <ul class="pager">
-                        <li class="pager-prev"><a href="#">PBFT Algorithm</a></li>
-                        <li class="pager-next"><a href="#">Blockchain</a></li>
-                    </ul>
-                </nav>
+                <p>A dashboard is built which depicts how the request is being propagated between the replicas in the network including the transition during each phase when a PBFT protocol runs. A new feature is also added to visualize the blockchain as new transactions are processed and blocks are added.</p>
+                <p style="text-align:center;"><img src="img/Blockchain.JPG" width="550" height="250" alt="Pbft"></p>
+                <p></p>
+                <p>A 2-tier architecture of the dashboard was built which comprise of : </p>
+                <ul>
+                    <li><h3>Presentation Layer or User Interface</h3></li>
+                    <p></p>
+                    <p>A presentation layer is the user interface and communication layer of the application which is used by end-users to interact with applications. This layer is responsible for displaying and collecting data from the end-users and sending it to the business layer.  For the proposed dashboard, this top-level layer is developed using HTML, CSS and Javascript/React which is capable of running on any web browser. </p>
+                    <p>To understand how the PBFT protocol works, the interface gives a visual idea to the end user about the status of each replica at a given time step in the given protocol along with an overall information flow between the replicas. Users can also view the messages exchanged between the replicas, which will be visible on clicking the diagram at a timestep. At every phase, users would be able to see the status of the node, the messages received, and the decisions made based on the majority formed. The visual representation of the protocol looks similar to the protocol representation normally given in research paper protocol proposals. </p>
+                    <p>At the end of each transaction, the user will get the option to visualize the blockchain formed and maintained. </p>
+                    <li><h3>Business Layer</h3></li>
+                    <p></p>
+                    <p>The open-source implementation of PBFT has no provisions for visualization, hence necessary changes were made to extend it so that it can be visualized. The protocol is run in the backend and the real time log data is integrated with the business layer through socket to be able to visualize it in the front end. Once the protocol is triggered, the log and data from each node is aggregated and sent to the presentation layer to display the workflow and the stats at each node. Parsed log messages as received by the nodes to the front-end listener are published, and in real-time the status of the protocol can be viewed as it proceeds. </p>
+                </ul>
+                <p style="text-align:center;"><img src="img/Flowchart.JPG" width="650" height="350" alt="Flow"></p>
                 <p></p>
                 <p></p>
                 <p></p>
-
                 <p>&nbsp;</p>
                 <hr>
-
-
-
-
 
             </div>
         </div>
@@ -88,16 +85,17 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="http://www.vldb.org/pvldb/vol13/p2893-rahnama.pdf">ResilientDB Research Paper</a></li>
                     <li><a href="https://resilientdb.com/">ResilientDB Blog</a></li>
-                    <li><a href="References.html">References</a></li>
+                    <li><a href="Reference.html">References</a></li>
                     <li><a href="">Github for Visualization</a></li>
                     <li><a href="">Github for Blog</a></li>
                     <script src="https://apis.google.com/js/platform.js"></script>
                     <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>   
                 </ul>
 
             </div>
         </div>
     </div>
+
 </body>
 </html>

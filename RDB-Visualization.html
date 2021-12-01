@@ -4,19 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PBFT algorithm Visualization in blockchain">
+    <meta name="description" content="Visualization on ResilientDB">
     <meta name="author" content="PBFT Visualization">
-    <title>PBFT Visualization</title>
+    <title>RDB Visualization</title>
     <link rel="icon" href="img/favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <script>
-
-        $(function () {
-            $("#footer").load("footer.html");$("#side-bar-right").load("side-bar-right.html"); $("#content-down").load("content-down.html"); $("#content-up").load("content-up.html");
-        });
-    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -28,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand active" href="index.html">PBFT Visualization</a>
+                <a class="navbar-brand" href="index.html">PBFT Visualization</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -45,7 +39,7 @@
                     <a class="list-group-item" href="Blockchain.html"><span class="fa fa-square"></span>&nbsp;Blockchain</a>
                     <a class="list-group-item" href="PBFT-algorithm.html"><span class="fa fa-square"></span>&nbsp;PBFT Algorithm</a>
                     <a class="list-group-item" href="Design-Tech.html"><span class="fa fa-square"></span>&nbsp;Design and Technical Approach</a>
-                    <a class="list-group-item" href="RDB-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on ResilientDB</a>
+                    <a class="list-group-item active" href="RDB-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on ResilientDB</a>
                     <a class="list-group-item" href="Open-Source-Visualization.html"><span class="fa fa-square"></span>&nbsp;Visualization on Open Source PBFT Implementation</a>
                 </div>
             </div>
@@ -55,15 +49,19 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="page-header">
-                    <h1>PBFT Visualization</h1>
+                    <h1>ResilientDB</h1>
                 </div>
-
-                <nav>
-                    <ul class="pager">
-                        <li class="pager-prev"><a href="#">PBFT Algorithm</a></li>
-                        <li class="pager-next"><a href="#">Blockchain</a></li>
-                    </ul>
-                </nav>
+                <p>ResilientDB is a data processing open source permissioned blockchain application which was created to enable implementation of any BFT protocol on it. ResilientDB is multithreaded and hence yields high-throughput consensus within its replicas. Currently the dashboard of resilientDB shows graphs for throughput of the replicas when the protocol is run, but there is no visualization of how the protocol works internally on the DB. Initially the visualization was planned to be built on top of resilientDB but due to the time constraints and understanding the complexity around running the protocol between containers using ssh and implementing this, the visualization project was later modified and was built on top of an open source PBFT implementation.</p>
+                <p>Research on resilientdb was done using docker and google cloud instances as explained below - </p>
+                <h3>ResilientDB Docker Interaction</h3>
+                <p></p>
+                <p>After spending quite a lot of time in analysing the dashboard module of resilientDB the flow from frontend to backend was understood and eventually the flow between modules starting from runform.jsx to simrun.py was clear. It was found that from simrun.py, the resilientDB script was run in cloud instances using bash commands. After modifying the scripts here, a connection between docker containers and the host from where the containers were launched was established. It was partially achieved with the help of the python docker package. As per suggestions received, when resilientDB was made to run from within the containers, some issues were faced while understanding the procedure to be used to get the data required to visualize in the front end. It was getting more complicated to achieve the desired goal through docker, hence the focus was shifted to create cloud instances.</p>
+                <h3>Google Cloud Interactions</h3>
+                <p></p>
+                <p>Multiple google cloud instances were created to run as nodes and clients and then the team tried to run the resilientDB in these instances. Initially the team started to connect to instances through the host to understand how the underlying bash scripts work. Considering the timeframe ahead for completion of this project, the team was split to parallely work on the visualization part and over an independent stable PBFT algorithm. How to get resilientDB up and running within google cloud instances is still under study.</p>
+                <p></p>
+                <p></p>
+                <p></p>
                 <p></p>
                 <p></p>
                 <p></p>
@@ -88,12 +86,12 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="http://www.vldb.org/pvldb/vol13/p2893-rahnama.pdf">ResilientDB Research Paper</a></li>
                     <li><a href="https://resilientdb.com/">ResilientDB Blog</a></li>
-                    <li><a href="References.html">References</a></li>
+                    <li><a href="Reference.html">References</a></li>
                     <li><a href="">Github for Visualization</a></li>
                     <li><a href="">Github for Blog</a></li>
                     <script src="https://apis.google.com/js/platform.js"></script>
                     <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>   
                 </ul>
 
             </div>
